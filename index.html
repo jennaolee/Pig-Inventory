@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogget Farm's Pig Inventory</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>var exports = {"__esModule": true};</script>
+    <script src="scripts/inventory.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.13.0/system.min.js" integrity="sha512-Yt9xiHZgPuo/cAJKrKCwSG5jQivTcInaav5OfcMwF1wPo06Q7OGog4uwmRPn7R2/a8xOdYB1bmgUkI3ZdI/sdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/main.js" defer></script>
+
+   
+</head>
+
+<body >
+    <header>
+        <h1>
+            Hogget Farm's Pig Inventory
+        </h1>
+    </header>
+
+    <main class="container">
+        <section class="row">
+
+            <section class="inventory col-12">
+                <table class="table pig-table" id="black-pig-table">
+                
+                    <tr>
+                        <td><h3>Name</h3></td>
+                        <td><h3>Category</h3></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
+                </table>
+
+                <table class="table pig-table" id="chestnut-pig-table">
+                    <tr class="trow">
+                        <td><h3>Name</h3></td>
+                        <td><h3>Category</h3></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <table class="table pig-table" id="grey-pig-table">
+                    <tr class="trow">
+                        <td><h3>Name</h3></td>
+                        <td><h3>Category</h3></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <table class="table pig-table" id="white-pig-table">
+                    <tr class="trow">
+                        <td><h3>Name</h3></td>
+                        <td><h3>Category</h3></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <button type="button" class="add-btn" id="add-btn" onclick="openAdd()">Add</button>
+                
+            </section>
+
+        </section>
+
+        <section class="form-popup" id="add-form">
+            <form class="form-container">
+                <h3>Add New:</h3>
+                <div id="message"></div>
+
+                <section class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">Name</label>
+                        <section class="col-sm-9">
+                            <input type="text" class="form-control" id="name" placeholder="Name" value="" maxlength="9" onchange="validateForm()" required>
+                        </section>
+                </section>
+
+                <section class="form-group row">
+                    <label for="category" class="col-sm-3 col-form-label" onchange="">Category</label>
+                        <section class="col-sm-9">
+                            <select class="form-select" aria-label="Default select example" id="category" onchange="selectBreed()" required>
+                                <option selected>Select a Category</option>
+                                <option value="Black">Black</option>
+                                <option value="Chestnut">Chestnut</option>
+                                <option value="Grey">Grey</option>
+                                <option value="White">White</option>
+                                
+                            </select>
+                        </section>
+                </section>
+
+                <section class="form-group row">
+                    <label for="category" class="col-sm-3 col-form-label">Breed</label>
+                        <section class="col-sm-9">
+                            <select class="form-select" aria-label="Default select example" id="grey-breed" onchange="validateForm()" disabled required>
+                                <option selected>Select a Breed</option>
+                                <option value="Ankamali">Ankamali</option>
+                                <option value="Babi">Babi</option>
+                                <option value="Gascon">Gascon</option>
+                                <option value="Kunekune">Kunekune</option>
+                                <option value="Mukota">Mukota</option>
+                            </select>
+
+                            <select class="form-select" aria-label="Default select example" id="chestnut-breed" onchange="validateForm()" disabled required>
+                                <option selected>Select a Breed</option>
+                                <option value="Bantu">Bantu</option>
+                                <option value="Basque">Basque</option>
+                                <option value="Celtic">Celtic</option>
+                                <option value="Lacombe">Lacombe</option>
+                            </select>
+
+                            <select class="form-select" aria-label="Default select example" id="white-breed" onchange="validateForm()" disabled required>
+                                <option selected>Select a Breed</option>
+                                <option value="Landrace">Landrace</option>
+                                <option value="Shushan">Shushan</option>
+                                <option value="Tsivilsk">Tsivilsk</option>
+                                <option value="Welsh">Welsh</option>
+                                <option value="Yorkshire">Yorkshire</option>
+                            </select>
+
+                            <select class="form-select" aria-label="Default select example" id="black-breed" onchange="validateForm()" disabled required>
+                                <option selected>Select a Breed</option>
+                                <option value="Berkshire">Berkshire</option>
+                                <option value="Guinea Hog">Guinea Hog</option>
+                                <option value="Jeju Black">Jeju Black</option>
+                                <option value="Meishan">Meishan</option>
+                            </select>
+                        </section>
+                </section>
+
+                <section class="form-group row">
+                    <label for="height" class="col-sm-3 col-form-label">Height (m)</label>
+                        <section class="col-sm-9">
+                            <input type="number" min="0" class="form-control" id="height" placeholder="Height" value="" onchange="validateForm()" required>
+                        </section>
+                </section>
+
+                <section class="form-group row">
+                    <label for="weight" class="col-sm-3 col-form-label">Weight (lbs)</label>
+                        <section class="col-sm-9">
+                            <input type="number" min="0" class="form-control" id="weight" placeholder="Weight" value="" onchange="validateForm()" required>
+                        </section>
+                </section>
+
+                <section class="form-group row">
+                    <label for="personality" class="col-sm-3 col-form-label">Personality</label>
+                        <section class="col-sm-9">
+                            <input type="text" class="form-control" id="personality" placeholder="Personality" value="" maxlength="9" onchange="validateForm()" required>
+                        </section>
+                </section>
+                
+
+                <section class="form-group row" id="attr">
+                    <label class="col-sm-3 col-form-label" id="attr-label"></label>
+                        <section class="col-sm-9">
+                            <input type="number" min="0" class="form-control" id="attr-input" placeholder="" value="" onchange="validateForm()" required>
+                        </section>
+                </section>
+
+
+                <button type="submit" class="btn add-pig" id="submit-pig" onclick="addPig()" disabled>Add Pig</button>
+                <button type="button" class="btn cancel" onclick="closeAdd()">Cancel</button>
+
+            </form>
+        </section>
+
+        <section class="form-popup" id="info-table">
+            <form class="form-container">
+                <h3>More Info:</h3>
+
+                <table class="table">
+                    <tr>
+                        <td><p>Name</p></td>
+                        <td id="name-info"></td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Category</p></td>
+                        <td id="category-info"></td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Breed</p></td>
+                        <td id="breed-info"></td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Height</p></td>
+                        <td id="height-info"></td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Weight</p></td>
+                        <td id="weight-info"></td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Personality</p></td>
+                        <td id="personality-info"></td>
+                    </tr>
+
+                    <tr>
+                        <td><p id="attr-heading"></p></td>
+                        <td id="attr-info"></td>
+                    </tr>
+
+                </table>
+
+                <button type="button" class="btn btn-danger cancel" onclick="closeInfo()">Close</button>
+                
+            </form>
+
+        </section>
+
+    </main>
+    
+</body>
+
+</html>

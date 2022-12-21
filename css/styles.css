@@ -1,0 +1,95 @@
+body {
+    padding: 2rem;
+    background-color: #1a3331;
+    color: #1a3331;
+}
+
+header {
+    padding: 10px 20px 30px;
+    color: #ecb5ba;
+}
+
+.pig-table {
+    text-align: center;
+
+}
+
+main {
+    background-color: #fffffd;
+}
+
+.more-info-btn, .delete-btn {
+  background-color: #1d3932;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.add-btn {
+    background-color: #ecb5ba;
+    color: #1a3331;
+    font-weight: bold;
+    padding: 10px 15px;
+    cursor: pointer;
+    opacity: 0.8;
+    margin: 10px 10px 30px;
+}
+
+.inventory {
+    padding: 40px 70px 20px;
+}
+
+.more-info-btn:hover, .delete-btn:hover, .add-btn:hover {
+    opacity: 1;  
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-container {
+  width: 500px;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-container .btn {
+  background-color: #7abe70;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin:10px 5px;
+} 
+
+.form-container .add-pig {
+    background-color: #417639;
+}
+
+.form-container .cancel {
+    opacity: 0.8;
+    background-color: rgb(202, 50, 50);
+}
+
+.form-container .cancel:hover {
+    opacity: 1;
+}
+
+.form-group {
+    padding: 5px;
+}
+
+#chestnut-breed, #white-breed, #black-breed, #attr-label, #attr-input {
+    display: none;
+}
+
+.trow {
+    visibility:collapse;
+}
